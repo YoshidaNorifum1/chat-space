@@ -16,21 +16,35 @@
 
 * ...
 
-* Ruby and Rails version
+## Ruby and Rails version
   Ruby:2.5.1p57
   Rails:5.0.7.2
 
-* Database creation
-
-## users table
+## tables
+### users table
 
 |Colummn|type|Options|
 |-------|----|-------|
 |user_id|integer|nul: false|
 |user_name|string|nul: false|
-|email|string||
+|email|string|unique: true|
 |pw|string|nul: false|
 
-### Association
+#### Association
 - has_many :posts
-- has_many :groups through :groups_users
+- has_many :groups(group created by the user)
+- has_many :groups, through :groups_users
+
+### groups table
+
+|Colummn|type|Options|
+|-------|----|-------|
+|Group_id|integer|null: false|
+|group_name|string|null: false|
+|user_id|integer|null: false, foreign_key: true|
+
+#### Association
+- has_many :posts
+- belongs_to :user(the user created this group)
+- has_many :users, through: :groups_users
+
