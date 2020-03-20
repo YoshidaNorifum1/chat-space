@@ -10,14 +10,14 @@
 
 |Colummn|type|Options|
 |-------|----|-------|
-|name|string|nul: false|
+|name|string|nul: false, index: true|
 |email|string|unique: true|
 |pw|string|nul: false|
 
 #### Association
 - has_many :posts
-- has_many :groups(group created by the user)
-- has_many :groups, through :groups_users
+- has_many :groups_users
+- has_many :groups, through: :groups_users
 
 ### groups table
 
