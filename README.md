@@ -25,6 +25,7 @@
 ## users table
 
 |Colummn|type|Options|
+|-------|----|-------|
 |user_id|integer|nul: false|
 |user_name|string|nul: false|
 |email|string||
@@ -32,4 +33,4 @@
 
 ### Association
 - has_many :posts
-- has_many :groups, through: :groups_users
+- has_many :groups through :groups_users
