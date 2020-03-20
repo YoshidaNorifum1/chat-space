@@ -45,7 +45,7 @@
 
 |Colummn|type|Options|
 |-------|----|-------|
-|body|string|null: false|
+|body|string||
 |image|string||
 |group_id|integer|null: false,foreign_key: true|
 |user_id|integer|null: false,foreign_key: true|
