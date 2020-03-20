@@ -10,7 +10,7 @@
 
 |Colummn|type|Options|
 |-------|----|-------|
-|user_name|string|nul: false|
+|name|string|nul: false|
 |email|string|unique: true|
 |pw|string|nul: false|
 
