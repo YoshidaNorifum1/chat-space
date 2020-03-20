@@ -10,7 +10,6 @@
 
 |Colummn|type|Options|
 |-------|----|-------|
-|user_id|integer|nul: false|
 |user_name|string|nul: false|
 |email|string|unique: true|
 |pw|string|nul: false|
@@ -24,7 +23,6 @@
 
 |Colummn|type|Options|
 |-------|----|-------|
-|Group_id|integer|null: false|
 |group_name|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 
@@ -48,7 +46,6 @@
 
 |Colummn|type|Options|
 |-------|----|-------|
-|post_id|integer|null: false|
 |body|string|null: false|
 |image|string||
 |group_id|integer|null: false,foreign_key: true|
