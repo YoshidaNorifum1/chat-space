@@ -27,7 +27,7 @@
 
 #### Association
 - has_many :posts
-- belongs_to :user(the user created this group)
+- belongs_to :groups_users
 - has_many :users, through: :groups_users
 
 ### groups_users table
