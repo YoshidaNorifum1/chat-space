@@ -58,3 +58,17 @@
 #### Association
 - belongs_to :group
 - belongs_to :user
+
+### posts table
+
+|Colummn|type|Options|
+|-------|----|-------|
+|post_id|integer|null: false|
+|body|string|null: false|
+|image|string||
+|group_id|integer|null: false,foreign_key: true|
+|user_id|integer|null: false,foreign_key: true|
+
+#### Association
+- belongs_to :group_id
+- belongs_to :user_id
