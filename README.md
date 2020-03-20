@@ -1,17 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
 
 * System dependencies
 
 * Configuration
 
-* Database creation
 
 * Database initialization
 
@@ -22,3 +15,21 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+* Ruby and Rails version
+  Ruby:2.5.1p57
+  Rails:5.0.7.2
+
+* Database creation
+
+## users table
+
+|Colummn|type|Options|
+|user_id|integer|nul: false|
+|user_name|string|nul: false|
+|email|string||
+|pw|string|nul: false|
+
+### Association
+- has_many :posts
+- has_many :groups, through: :groups_users
