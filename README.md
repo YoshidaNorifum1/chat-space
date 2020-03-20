@@ -17,10 +17,11 @@
 * ...
 
 ## Ruby and Rails version
-  Ruby:2.5.1p57
-  Rails:5.0.7.2
+- Ruby:2.5.1p57
+- Rails:5.0.7.2
 
 ## tables
+- There are 4 tables.
 ### users table
 
 |Colummn|type|Options|
