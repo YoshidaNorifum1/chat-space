@@ -1,24 +1,55 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Ruby and Rails version
+- Ruby:2.5.1p57
+- Rails:5.0.7.2
 
-Things you may want to cover:
+## tables
+- There are 4 tables.
+### users table
 
-* Ruby version
+|Colummn|type|Options|
+|-------|----|-------|
+|name|string|nul: false, index: true|
+|email|string|unique: true|
+|pw|string|nul: false|
 
-* System dependencies
+#### Association
+- has_many :posts
+- has_many :groups_users
+- has_many :groups, through: :groups_users
 
-* Configuration
+### groups table
 
-* Database creation
+|Colummn|type|Options|
+|-------|----|-------|
+|name|string|null: false|
 
-* Database initialization
+#### Association
+- has_many :posts
+- belongs_to :groups_users
+- has_many :users, through: :groups_users
 
-* How to run the test suite
+### groups_users table
 
-* Services (job queues, cache servers, search engines, etc.)
+|Colummn|type|Options|
+|-------|----|-------|
+|group|references|null: false,foreign_key: true|
+|user|references|null: false,foreign_key: true|
 
-* Deployment instructions
+#### Association
+- belongs_to :group
+- belongs_to :user
 
-* ...
+### posts table
+
+|Colummn|type|Options|
+|-------|----|-------|
+|body|string||
+|image|string||
+|group|references|null: false,foreign_key: true|
+|user|references|null: false,foreign_key: true|
+
+#### Association
+- belongs_to :group
+- belongs_to :user
