@@ -1,0 +1,153 @@
+*{
+  box-sizing: border-box;
+}
+//bixins
+@mixin fontsize-color($font-size,$color){
+  font-size: $font-size;
+  color: $color;
+}
+@mixin height-width($height,$width){
+  height: $height;
+  width: $width;
+}
+
+//variant
+$white: #ffffff;
+$black: #333333;
+$gray: #999999;
+
+//main
+.side-bar{
+  @include height-width(100vh,300px );
+  float: left;
+  background-color: #253141;
+  color: $white;
+  font-weight: bold;
+  &__user{
+    line-height: 100px;
+    height: 100px;
+    margin: auto 20px;
+    &-name{
+      float:left;
+      font-size: 16px;
+    }
+    &-icon{
+      float:right;
+      padding-right: 5px;
+      color: $white; 
+    }
+  }
+  &__groups{
+    height: calc(100% - 100px);
+    background-color: #2f3e51;
+    .side-bar__group{
+      height: 91px;
+      margin: 0 20px;
+      &-name{
+        padding-top: 20px;
+        font-size: 15px;
+      }
+      &-message{
+        margin-top: 5px;
+        font-size: 11px;
+      }
+    }
+  }
+}
+.chat-main{
+  @include height-width(100vh,calc(100vw - 300px) );
+  margin-left: 300px;
+  background-color:$white; 
+  &__group{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    &-left-contents{
+      margin-left: 40px;
+      &-name{
+        margin-top: 35px;
+        @include fontsize-color(20px,$black );
+      }
+      &-members{
+        margin-top: 15px;
+        display: flex;
+        @include fontsize-color(12px,$gray );
+        .chat-main__group-left-contents-member{}
+      }
+    }
+    &-right-contents{
+      &-edit-btn{
+        display: block;
+        @include height-width(40px,72px );
+        line-height: 40px;
+        margin-top: 28px;
+        margin-right: 40px;
+        padding: 0 20px;
+        @include fontsize-color(16px,#38aef0 );
+        text-decoration: none;
+        border: solid 1px;
+      }
+    }
+  }
+  &__messages{
+    height: calc(100% - 100px - 90px);
+    background-color: #fafafa;
+    .chat-main__message{
+      margin-left: 40px;
+      &-header{
+        display: flex;
+        &-name{
+          @include fontsize-color(16px,$black );
+        }
+        &-date, &-time{
+          margin-left: 5px;
+          @include fontsize-color(12px,$gray );
+        }
+      }
+      &-content{
+        &-text{
+          margin-top: 12px;
+          margin-bottom: 46px;
+          @include fontsize-color(14px,#434a54 );
+        }
+      }
+    }
+  }
+  &__footer{
+    height: 90px;
+    background-color: #d2d2d2;
+    display: flex;
+    justify-content: space-between;
+    &-input-box{
+      line-height: 90px;
+      @include height-width(50px,100% );
+      margin-left: 40px;
+      position: relative;
+      &-textarea{
+        line-height: 50px;
+        width: 100%;
+        padding-left: 10px;
+      }
+      &-imgicon{
+        position: absolute;
+        right: 0;
+        line-height: 50px;
+        margin:20px 10px 20px 0;
+        background-color:$white; 
+        @include fontsize-color(25px,$black );
+        cursor: pointer;
+      }
+      &-imgbtn{
+        display :none;
+      }
+    }
+    &-send-btn{
+      display: inline-block;
+      @include height-width(50px,100px );
+      margin:auto 40px auto 15px;
+      background-color:#38aef0;
+      color:$white; 
+      cursor: pointer;
+    }
+  }
+}
