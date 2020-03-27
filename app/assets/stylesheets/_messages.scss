@@ -1,25 +1,40 @@
 *{
   box-sizing: border-box;
 }
+//bixins
+@mixin fontsize-color($font-size,$color){
+  font-size: $font-size;
+  color: $color;
+}
+@mixin height-width($height,$width){
+  height: $height;
+  width: $width;
+}
+
+//variant
+$white: #ffffff;
+$black: #333333;
+$gray: #999999;
+
+//main
 .side-bar{
-  width: 300px;
-  background-color: #253141;
-  height: 100vh;
+  @include height-width(100vh,300px );
   float: left;
-  color: #ffffff;
+  background-color: #253141;
+  color: $white;
   font-weight: bold;
   &__user{
-    height: 100px;
     line-height: 100px;
+    height: 100px;
     margin: auto 20px;
     &-name{
-      font-size: 16px;
       float:left;
+      font-size: 16px;
     }
     &-icon{
       float:right;
       padding-right: 5px;
-      color: #fff;
+      color: $white; 
     }
   }
   &__groups{
@@ -40,10 +55,9 @@
   }
 }
 .chat-main{
-  width: calc(100vw - 300px);
+  @include height-width(100vh,calc(100vw - 300px) );
   margin-left: 300px;
-  height:100vh;
-  background-color: #ffffff;
+  background-color:$white; 
   &__group{
     height: 100px;
     display: flex;
@@ -52,27 +66,24 @@
       margin-left: 40px;
       &-name{
         margin-top: 35px;
-        color: #333333;
-        font-size: 20px;
+        @include fontsize-color(20px,$black );
       }
       &-members{
         margin-top: 15px;
-        color: #999999;
-        font-size: 12px;
         display: flex;
+        @include fontsize-color(12px,$gray );
+        .chat-main__group-left-contents-member{}
       }
     }
     &-right-contents{
       &-edit-btn{
         display: block;
-        height: 40px;
-        width: 72px;
+        @include height-width(40px,72px );
         line-height: 40px;
-        margin-right: 40px;
         margin-top: 28px;
+        margin-right: 40px;
         padding: 0 20px;
-        color: #38aef0;
-        font-size: 16px;
+        @include fontsize-color(16px,#38aef0 );
         text-decoration: none;
         border: solid 1px;
       }
@@ -86,21 +97,18 @@
       &-header{
         display: flex;
         &-name{
-          color: #333333;
-          font-size: 16px;
+          @include fontsize-color(16px,$black );
         }
         &-date, &-time{
           margin-left: 5px;
-          color: #999999;
-          font-size: 12px;
+          @include fontsize-color(12px,$gray );
         }
       }
       &-content{
         &-text{
           margin-top: 12px;
           margin-bottom: 46px;
-          color: #434a54;
-          font-size: 14px;
+          @include fontsize-color(14px,#434a54 );
         }
       }
     }
@@ -112,23 +120,21 @@
     justify-content: space-between;
     &-input-box{
       line-height: 90px;
+      @include height-width(50px,100% );
       margin-left: 40px;
-      height: 50px;
-      width:100%;
       position: relative;
       &-textarea{
         line-height: 50px;
-        padding-left: 10px;
         width: 100%;
+        padding-left: 10px;
       }
       &-imgicon{
-        line-height: 50px;
         position: absolute;
         right: 0;
+        line-height: 50px;
         margin:20px 10px 20px 0;
-        font-size: 25px;
-        background-color: #ffffff;
-        color: #000000;
+        background-color:$white; 
+        @include fontsize-color(25px,$black );
         cursor: pointer;
       }
       &-imgbtn{
@@ -137,13 +143,11 @@
     }
     &-send-btn{
       display: inline-block;
+      @include height-width(50px,100px );
       margin:auto 40px auto 15px;
-      height: 50px;
-      width: 100px;
       background-color:#38aef0;
-      color: #ffffff;
+      color:$white; 
       cursor: pointer;
-
     }
   }
 }
