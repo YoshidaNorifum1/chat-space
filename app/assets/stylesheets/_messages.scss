@@ -6,12 +6,37 @@
   background-color: #253141;
   height: 100vh;
   float: left;
-  &__user--info{
+  color: #ffffff;
+  font-weight: bold;
+  &__user{
     height: 100px;
+    line-height: 100px;
+    margin: auto 20px;
+    &-name{
+      font-size: 16px;
+      float:left;
+    }
+    &-icon{
+      float:right;
+      padding-right: 5px;
+      color: #fff;
+    }
   }
   &__groups{
     height: calc(100% - 100px);
     background-color: #2f3e51;
+    .side-bar__group{
+      height: 91px;
+      margin: 0 20px;
+      &-name{
+        padding-top: 20px;
+        font-size: 15px;
+      }
+      &-message{
+        margin-top: 5px;
+        font-size: 11px;
+      }
+    }
   }
 }
 .chat-main{
@@ -19,15 +44,106 @@
   margin-left: 300px;
   height:100vh;
   background-color: #ffffff;
-  &__group--info{
+  &__group{
     height: 100px;
+    display: flex;
+    justify-content: space-between;
+    &-left-contents{
+      margin-left: 40px;
+      &-name{
+        margin-top: 35px;
+        color: #333333;
+        font-size: 20px;
+      }
+      &-members{
+        margin-top: 15px;
+        color: #999999;
+        font-size: 12px;
+        display: flex;
+      }
+    }
+    &-right-contents{
+      &-edit-btn{
+        display: block;
+        height: 40px;
+        width: 72px;
+        line-height: 40px;
+        margin-right: 40px;
+        margin-top: 28px;
+        padding: 0 20px;
+        color: #38aef0;
+        font-size: 16px;
+        text-decoration: none;
+        border: solid 1px;
+      }
+    }
   }
   &__messages{
     height: calc(100% - 100px - 90px);
     background-color: #fafafa;
+    .chat-main__message{
+      margin-left: 40px;
+      &-header{
+        display: flex;
+        &-name{
+          color: #333333;
+          font-size: 16px;
+        }
+        &-date, &-time{
+          margin-left: 5px;
+          color: #999999;
+          font-size: 12px;
+        }
+      }
+      &-content{
+        &-text{
+          margin-top: 12px;
+          margin-bottom: 46px;
+          color: #434a54;
+          font-size: 14px;
+        }
+      }
+    }
   }
   &__footer{
     height: 90px;
     background-color: #d2d2d2;
+    display: flex;
+    justify-content: space-between;
+    &-input-box{
+      line-height: 90px;
+      margin-left: 40px;
+      height: 50px;
+      width:100%;
+      position: relative;
+      &-textarea{
+        line-height: 50px;
+        padding-left: 10px;
+        width: 100%;
+      }
+      &-imgicon{
+        line-height: 50px;
+        position: absolute;
+        right: 0;
+        margin:20px 10px 20px 0;
+        font-size: 25px;
+        background-color: #ffffff;
+        color: #000000;
+        cursor: pointer;
+      }
+      &-imgbtn{
+        display :none;
+      }
+    }
+    &-send-btn{
+      display: inline-block;
+      margin:auto 40px auto 15px;
+      height: 50px;
+      width: 100px;
+      background-color:#38aef0;
+      color: #ffffff;
+      cursor: pointer;
+
+    }
   }
 }
