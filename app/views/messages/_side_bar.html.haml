@@ -4,7 +4,7 @@
       = current_user.name
     = link_to edit_user_path(current_user), class: "side-bar__user-icon" do
       = icon('fas', "cog")
-    = link_to "#", class: "side-bar__user-icon" do
+    = link_to new_group_path, class: "side-bar__user-icon" do
       = icon('fas', 'edit')
   .side-bar__groups
     .side-bar__group
