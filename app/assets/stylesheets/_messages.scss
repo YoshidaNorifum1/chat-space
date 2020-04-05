@@ -43,6 +43,10 @@ $gray: #999999;
     .side-bar__group{
       height: 91px;
       margin: 0 20px;
+      & a{
+        color: $white;
+        text-decoration: none;
+      }
       &-name{
         padding-top: 20px;
         font-size: 15px;
