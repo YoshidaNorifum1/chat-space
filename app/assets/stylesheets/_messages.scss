@@ -40,7 +40,7 @@ $gray: #999999;
   &__groups{
     height: calc(100% - 100px);
     background-color: #2f3e51;
-    overflow-y: scroll;
+    overflow-y: auto;
     .side-bar__group{
       height: 91px;
       margin: 0 20px;
@@ -97,8 +97,7 @@ $gray: #999999;
   &__messages{
     height: calc(100% - 100px - 90px);
     background-color: #fafafa;
-    padding-top: 100px;
-    overflow-y: scroll;
+    overflow-y: auto;
     .chat-main__message{
       margin-left: 40px;
       &-header{
