@@ -77,7 +77,9 @@ $gray: #999999;
         margin-top: 15px;
         display: flex;
         @include fontsize-color(12px,$gray );
-        .chat-main__group-left-contents-member{}
+        .chat-main__group-left-contents-member{
+        margin-right: 5px;
+        }
       }
     }
     &-right-contents{

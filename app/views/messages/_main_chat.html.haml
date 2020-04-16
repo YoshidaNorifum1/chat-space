@@ -2,15 +2,14 @@
   .chat-main__group
     .chat-main__group-left-contents
       .chat-main__group-left-contents-name
-        test
+        = @group.name
       .chat-main__group-left-contents-members
         member:
-        .chat-main__group-left-contents-menber
-          names1
-        .chat-main__group-left-contents-menber
-          names2
+        - @group.users.each do |user|
+          .chat-main__group-left-contents-member
+            = user.name
     .chat-main__group-right-contents
-      =link_to "#",class: "chat-main__group-right-contents-edit-btn" do
+      =link_to edit_group_path(@group.id),class: "chat-main__group-right-contents-edit-btn" do
         Edit
     
   .chat-main__messages
