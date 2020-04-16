@@ -7,4 +7,9 @@
     = link_to new_group_path, class: "side-bar__user-icon" do
       = icon('fas', 'edit')
   .side-bar__groups
-    = render partial: "group", collection: groups
+    .side-bar__group
+      - current_user.groups.each do |group|
+        .side-bar__group-name
+          = group.name
+        .side-bar__group-message
+          = group.show_last_message
