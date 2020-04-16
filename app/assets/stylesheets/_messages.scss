@@ -40,6 +40,7 @@ $gray: #999999;
   &__groups{
     height: calc(100% - 100px);
     background-color: #2f3e51;
+    overflow-y: auto;
     .side-bar__group{
       height: 91px;
       margin: 0 20px;
@@ -76,7 +77,9 @@ $gray: #999999;
         margin-top: 15px;
         display: flex;
         @include fontsize-color(12px,$gray );
-        .chat-main__group-left-contents-member{}
+        .chat-main__group-left-contents-member{
+        margin-right: 5px;
+        }
       }
     }
     &-right-contents{
@@ -96,6 +99,7 @@ $gray: #999999;
   &__messages{
     height: calc(100% - 100px - 90px);
     background-color: #fafafa;
+    overflow-y: auto;
     .chat-main__message{
       margin-left: 40px;
       &-header{
@@ -119,6 +123,7 @@ $gray: #999999;
   }
   &__footer{
     height: 90px;
+    margin-bottom: 0px;
     background-color: #d2d2d2;
     display: flex;
     justify-content: space-between;
