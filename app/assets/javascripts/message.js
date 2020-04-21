@@ -53,6 +53,7 @@ $(function(){
       $(".chat-main__messages").append(html);
       $("#new_message")[0].reset();
       $(".chat-main__messages").animate({scrollTop: $('.chat-main__messages')[0].scrollHeight});
+      $(".chat-main__footer-send-btn").prop('disabled', false);
     })
   });
 });
