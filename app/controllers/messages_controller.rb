@@ -10,7 +10,9 @@ class MessagesController < ApplicationController
     p = message_params
     @message = @group.messages.new(p)
     if @message.save then
-      redirect_to group_messages_path(@group), notice: "saved"
+      respond_to do |format|
+        format.json
+      end
     else
       @messages = @group.messages.includes(:user)
       flash.now[:alert] = "please enter message"
