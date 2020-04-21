@@ -7,8 +7,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    p = message_params
-    @message = @group.messages.new(p)
+    @message = @group.messages.new(message_params)
     if @message.save then
       redirect_to group_messages_path(@group), notice: "saved"
     else
