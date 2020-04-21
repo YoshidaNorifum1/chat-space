@@ -1,6 +1,5 @@
 $(function(){
   function buildHTML(message){
-      debugger;
     if (message.image.url != null){
       var html = `<div class ="chat-main__message">
                     <div class="chat-main__message-header">
@@ -52,6 +51,8 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $(".chat-main__messages").append(html);
+      $("#new_message")[0].reset();
+      $(".chat-main__messages").animate({scrollTop: $('.chat-main__messages')[0].scrollHeight});
     })
   });
 });
