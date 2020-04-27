@@ -1,7 +1,29 @@
 $(function(){
+
+  var reloadMessages = function(){
+    var last_message_id = $('.chat-main__message:last').data("message-id");
+    $.ajax({
+      url: "api/messages",
+      type: 'GET',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages){
+      console.log('success');
+      var insertHTML = '';
+      $.each(messages, function(i, message){
+        insertHTML += buildHTML(message)
+      });
+      $('.chat-main__messages').append(insertHTML);
+    })
+    .fail(function(){
+      alert('error');
+    });
+  };
+
   function buildHTML(message){
     if (message.image.url != null){
-      var html = `<div class ="chat-main__message">
+      var html = `<div class ="chat-main__message" data-message-id=${message.id}>
                     <div class="chat-main__message-header">
                       <div class="chat-main__message-header-name">
                       ${message.user_name}
@@ -18,7 +40,7 @@ $(function(){
                     </div>
                   </div>` 
     }else{
-      var html = `<div class ="chat-main__message">
+      var html = `<div class ="chat-main__message" data-message-id=${message.id}>
                     <div class="chat-main__message-header">
                       <div class="chat-main__message-header-name">
                       ${message.user_name}
@@ -60,4 +82,5 @@ $(function(){
       $(".chat-main__footer-send-btn").prop('disabled', false);
     });
   });
+  setInterval(reloadMessages, 7000);
 });
