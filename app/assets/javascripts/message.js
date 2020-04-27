@@ -9,12 +9,15 @@ $(function(){
       data: {id: last_message_id}
     })
     .done(function(messages){
-      console.log('success');
-      var insertHTML = '';
-      $.each(messages, function(i, message){
-        insertHTML += buildHTML(message)
-      });
-      $('.chat-main__messages').append(insertHTML);
+      if(messages.length !== 0){
+        console.log('success');
+        var insertHTML = '';
+        $.each(messages, function(i, message){
+          insertHTML += buildHTML(message)
+        });
+        $('.chat-main__messages').append(insertHTML);
+        $(".chat-main__messages").animate({scrollTop: $('.chat-main__messages')[0].scrollHeight});
+      }
     })
     .fail(function(){
       alert('error');
