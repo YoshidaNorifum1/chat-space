@@ -25,6 +25,7 @@ $(function(){
   };
 
   function buildHTML(message){
+    debugger;
     if (message.image){
       var html = `<div class ="chat-main__message" data-message-id=${message.id}>
                     <div class="chat-main__message-header">
@@ -39,7 +40,7 @@ $(function(){
                       <div class="chat-main__message-content-text">
                       ${message.content}
                       </div>
-                      <img src="${message.image.url}" class="chat-main__message-content-image">
+                      <img src="${message.image}" class="chat-main__message-content-image">
                     </div>
                   </div>` 
     }else{
