@@ -85,5 +85,7 @@ $(function(){
       $(".chat-main__footer-send-btn").prop('disabled', false);
     });
   });
-  setInterval(reloadMessages, 7000);
+  if(document.location.href.match(/\/groups\/\d+\/messages/)){
+    setInterval(reloadMessages, 7000);
+  }
 });
