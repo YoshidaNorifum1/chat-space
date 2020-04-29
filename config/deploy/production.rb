@@ -7,6 +7,7 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 server '54.249.27.83',user: 'ec2-user', roles: %w{app db web}
+config.consider_all_requests_local = true
 
 
 # role-based syntax
