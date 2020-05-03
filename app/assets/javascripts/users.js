@@ -29,10 +29,18 @@ $(function(){
     let html = `<input value="${userId}" name="group[user_ids][]" type="hidden" id="group_user_ids_${userId}" />`;
     $(`#${userId}`).append(html);
   }
+  function isInMember(user,ids){
+    var rslt = true;
+    ids.forEach(function(id){
+      if(user.id == id)rslt = false;
+    });
+    return rslt;
+  }
 
 
   $('#user-search-field').on('keyup',function(){
     var input = document.getElementById('user-search-field').value
+    var userName=$(this)
     $.ajax({
       type: 'GET',
       url: '/users',
@@ -41,9 +49,19 @@ $(function(){
     })
     .done(function(users){
       $("#user-search-result").empty();
-      console.log(users)
-
       if(users.length != 0){
+        var users_in_add_area = document.querySelectorAll('.js-add-user > .chat-group-user');
+        var users_in_member = document.querySelectorAll('.js-chat-member > input');
+        var userIds = new Array();
+        users_in_add_area.forEach(function(item){
+          userIds.push(item.getAttribute('id'));
+        });
+        users_in_member.forEach(function(item){
+          userIds.push(item.getAttribute('value'));
+        });
+        users = users.filter(function(user){
+          return isInMember(user,userIds);
+        });
         users.forEach(function(user){
           addUser(user);
         });
