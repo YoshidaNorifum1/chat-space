@@ -24,7 +24,6 @@ $(function(){
   };
 
   function buildHTML(message){
-    debugger;
     if (message.image){
       var html = `<div class ="chat-main__message" data-message-id=${message.id}>
                     <div class="chat-main__message-header">
